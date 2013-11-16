@@ -31,15 +31,18 @@ function scatterPlot3d( parent )
   var axisMapping = {
     0: {
         domain: exposureDomain,
-        base: 2
+        base: 2,
+        label: 'exposure'
     },
     1: {
         domain: isoDomain,
-        base: 2
+        base: 2,
+        label: 'iso'
     },
     2: {
         domain: apertureDomain,
-        base: Math.sqrt(2)
+        base: Math.sqrt(2),
+        label: 'aperture'
     }
   };
 
@@ -109,7 +112,7 @@ function scatterPlot3d( parent )
      .append("text")
        .attr("class", axisName("AxisLabelText", axisIndex))
        .attr("solid", "true")
-       .attr("string", key)
+       .attr("string", axisMapping[axisIndex]['label'])
     .append("fontstyle")
        .attr("size", labelFontSize)
        .attr("family", "SANS")
